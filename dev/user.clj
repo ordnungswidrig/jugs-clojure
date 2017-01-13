@@ -1,5 +1,5 @@
 (ns user
-  (:require [jugsclojure.server]
+  (:require [jugsclojure.server :refer [restart-server]]
             [ring.middleware.reload :refer [wrap-reload]]
             [figwheel-sidecar.repl-api :as figwheel]))
 
@@ -11,7 +11,15 @@
 (def http-handler
   (wrap-reload #'jugsclojure.server/http-handler))
 
-(defn run []
-  (figwheel/start-figwheel!))
+(defn go []
+  (figwheel/start-figwheel!)
+  (restart-server))
 
 (def browser-repl figwheel/cljs-repl)
+
+
+(comment
+
+  (go)
+;;
+)

@@ -22,6 +22,14 @@
       wrap-with-logger
       wrap-gzip))
 
+
+(defonce server (atom nil))
+
+(defn restart-server [& [port]]
+  (swap! server (fn [value]
+                  (when value (.stop value))
+                  (run-jetty #'http-handler {:port (or port 10555) :join? false}))))
+
 (defn -main [& [port]]
-  (let [port (Integer. (or port (env :port) 10555))]
-    (run-jetty http-handler {:port port :join? false})))
+  (let [port (Integer. (or port (env :port)))]
+    (restart-server port)))
