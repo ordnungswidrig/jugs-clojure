@@ -13,7 +13,8 @@
 
 (defn go []
   (figwheel/start-figwheel!)
-  (restart-server))
+  (restart-server)
+  (prn "Application restartet."))
 
 (def browser-repl figwheel/cljs-repl)
 
