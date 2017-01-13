@@ -3,7 +3,7 @@
 
 (enable-console-print!)
 
-(defonce app-state (atom {:text "Hello Chestnut!"}))
+(defonce app-state (atom {:text "Hello, Stuttgart!"}))
 
 (defn greeting []
   [:h1 (:text @app-state)])
