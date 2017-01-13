@@ -31,5 +31,5 @@
                   (run-jetty #'http-handler {:port (or port 10555) :join? false}))))
 
 (defn -main [& [port]]
-  (let [port (Integer. (or port (env :port)))]
+  (let [port (some-> (or port (env :port)) (Integer.))]
     (restart-server port)))
