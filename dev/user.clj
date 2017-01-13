@@ -16,6 +16,8 @@
   (restart-server)
   (prn "Application restartet."))
 
+(def run restart-server)
+
 (def browser-repl figwheel/cljs-repl)
 
 

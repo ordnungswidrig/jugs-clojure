@@ -9,6 +9,14 @@ Open a terminal and type `lein repl` to start a Clojure REPL
 In the REPL, type
 
 ```clojure
+(go)
+```
+
+The call to `(go)` restarts the server and the Figwheel server.
+
+Or -- individually call
+
+```clojure
 (run)
 (browser-repl)
 ```
